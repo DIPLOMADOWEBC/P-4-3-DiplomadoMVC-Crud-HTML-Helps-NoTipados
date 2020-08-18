@@ -1,0 +1,49 @@
+﻿@model IEnumerable<P_4_2_DiplomadoMVC_Crud_HTML_Helps_NoTipados.Models.Productos>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @{ Html.BeginForm(); }
+        <p>
+            Buscar por Codigo:
+            @Html.TextBox("Id")
+        </p>
+        <p>
+            <input type="submit" value="Buscar" />
+        </p>
+        @{ Html.EndForm(); }
+    </div>
+    <table>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Descripcion
+            </th>
+            <th>
+                Tipo
+            </th>
+            <th>
+                Precio
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                <td>@Html.DisplayFor(modelItem => item.Descripcion)</td>
+                <td>@Html.DisplayFor(modelItem => item.Tipo)</td>
+                <td>@Html.DisplayFor(modelItem => item.Precio)</td>
+            </tr>
+        }
+    </table>
+    <a href="/Home/Grabar">Agregar</a>
+</body>
+</html>
